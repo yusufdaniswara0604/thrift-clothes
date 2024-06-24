@@ -26,3 +26,15 @@ Route::get('/detailbarang', function () {
 Route::get('/checkout', function () {
     return view('checkout');
 });
+=======
+Route::get('/register', function () {
+    return view('register');
+});
+
+Route::get('/index', function () {
+    return view('index');
+});
+
+Route::get('/detail', function () {
+    return view('detail');
+});
