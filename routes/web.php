@@ -11,6 +11,18 @@ Route::get('/template', function () {
     return view('template');
 });
 
+Route::get('/crud', function () {
+    return view('crud');
+});
+
+Route::get('/page', function () {
+    return view('page');
+});
+
+Route::get('/tambah', function () {
+    return view('tambah');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
@@ -26,7 +38,7 @@ Route::get('/detailbarang', function () {
 Route::get('/checkout', function () {
     return view('checkout');
 });
-=======
+
 Route::get('/register', function () {
     return view('register');
 });
