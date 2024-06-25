@@ -1,9 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
 
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+
+
+Route::get('/katalog', function () {
+    return view('katalog');
+});
 
 
 Route::get('/crud', function () {
@@ -38,8 +46,8 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/index', function () {
-    return view('index');
+Route::get('/login', function () {
+    return view('login');
 });
 
 Route::get('/detail', function () {
