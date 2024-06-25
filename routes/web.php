@@ -50,3 +50,7 @@ Route::get('/index', function () {
 Route::get('/detail', function () {
     return view('detail');
 });
+
+Route::get('/landing', function () {
+    return view('landing');
+});
