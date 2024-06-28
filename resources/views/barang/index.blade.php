@@ -74,22 +74,37 @@
         </div>
   
     </aside>
+    <!-- Main Content -->
+    <div class="flex-1 min-h-screen bg-gray-100">
+        <!-- Navbar -->
+        <nav class="bg-white shadow-lg">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex justify-between items-center h-16">
+                <button data-collapse-toggle="navbar-hamburger" type="button" class="inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-hamburger" aria-expanded="false">
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+      </svg>
+    </button>
 
-    <div class="container mx-auto py-8">
-        <h1 class="text-2xl font-bold mb-4">Daftar Barang</h1>
-        <a href="/barangs/create"
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block mb-4">Tambah
-            Barang</a>
+                  <img class="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src="https://randomuser.me/api/portraits/women/4.jpg" alt="Bordered avatar">
 
-        @if ($barangs->isEmpty())
+                </div>
+            </div>
+        </nav>
+
+        <div class="container mx-auto py-8">
+    <h1 class="text-2xl font-bold mb-4">Daftar Barang</h1>
+    <a href="/barangs/create" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block mb-4">Tambah Barang</a>
+
+    @if ($barangs->isEmpty())
         <p class="text-gray-600">Tidak ada barang yang ditemukan.</p>
-        @else
-        <div class="table-container">
+    @else
+        <div class="table-container mx-auto">
             <table class="min-w-full bg-white border-gray-300 shadow-md rounded">
                 <thead>
                     <tr class="bg-gray-200">
-                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama
-                            Barang</th>
+                        <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama Barang</th>
                         <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Deskripsi</th>
                         <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Harga</th>
                         <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
@@ -97,18 +112,16 @@
                 </thead>
                 <tbody>
                     @foreach ($barangs as $barang)
-                    <tr class="hover:bg-gray-100">
-                        <td class="px-4 py-2 whitespace-no-wrap">{{ $barang->Nama_Barang }}</td>
-                        <td class="px-4 py-2 whitespace-pre-line">{{ $barang->Deskripsi }}</td>
-                        <td class="px-4 py-2">{{ $barang->Harga }}</td>
-                        <td class="px-4 py-2 space-x-2">
-                            <a href="/barangs/{{ $barang->ID_Barang }}/edit"
-                                class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100">
+                        <td class="px-6 py-4 whitespace-no-wrap">{{ $barang->Nama_Barang }}</td>
+                        <td class="px-6 py-4 whitespace-pre-line">{{ $barang->Deskripsi }}</td>
+                        <td class="px-6 py-4">{{ $barang->Harga }}</td>
+                        <td class="px-6 py-4 text-right space-x-2">
+                            <a href="/barangs/{{ $barang->ID_Barang }}/edit" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</a>
                             <form action="/barangs/{{ $barang->ID_Barang }}" method="POST" class="inline-block">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit"
-                                    class="inline-block bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+                                <button type="submit" class="inline-block bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
                             </form>
                         </td>
                     </tr>
@@ -116,8 +129,9 @@
                 </tbody>
             </table>
         </div>
-        @endif
-    </div>
+    @endif
+</div>
+
 
 </body>
 @vite('resources/js/app.js')

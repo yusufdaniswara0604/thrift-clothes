@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BarangController;
 
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/landing', function () {
+    return view('landing');
 });
 
 
@@ -54,6 +55,21 @@ Route::get('/detail', function () {
     return view('detail');
 });
 
-Route::get('/landing', function () {
-    return view('landing');
-});
+
+// Route untuk menampilkan form create barang
+Route::get('/barangs/create', [BarangController::class, 'create'])->name('barangs.create');
+
+// Route untuk menyimpan data barang baru
+Route::post('/barangs', [BarangController::class, 'store'])->name('barangs.store');
+
+// Route untuk menampilkan daftar barang
+Route::get('/barangs', [BarangController::class, 'index'])->name('barangs.index');
+
+// Route untuk menampilkan form edit barang
+Route::get('/barangs/{barang}/edit', [BarangController::class, 'edit'])->name('barangs.edit');
+
+// Route untuk mengupdate data barang
+Route::put('/barangs/{barang}', [BarangController::class, 'update'])->name('barangs.update');
+
+// Route untuk menghapus data barang
+Route::delete('/barangs/{barang}', [BarangController::class, 'destroy'])->name('barangs.destroy');
